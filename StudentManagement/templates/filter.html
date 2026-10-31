@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Students</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Filter Student Records</h1>
+
+    <form method="POST">
+
+        <label>Select Filter</label>
+
+        <select name="choice" required>
+
+            <option value="department">Department</option>
+
+            <option value="greater">Marks Greater Than 75</option>
+
+            <option value="range">Marks Between 50 and 80</option>
+
+            <option value="age">Age Greater Than 20</option>
+
+        </select>
+
+        <label>Department (for department filter)</label>
+
+        <input type="text" name="department" placeholder="Enter MCA, BCA etc.">
+
+        <button type="submit">Apply Filter</button>
+
+    </form>
+
+    <h3>{{ message }}</h3>
+
+    {% if students %}
+
+    <h2>Filtered Student Records</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Marks</th>
+        </tr>
+
+        {% for s in students %}
+
+        <tr>
+            <td>{{ s.student_id }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.age }}</td>
+            <td>{{ s.gender }}</td>
+            <td>{{ s.department }}</td>
+            <td>{{ s.marks }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% endif %}
+
+    <a href="/">Home</a>
+
+</div>
+
+</body>
+</html>
