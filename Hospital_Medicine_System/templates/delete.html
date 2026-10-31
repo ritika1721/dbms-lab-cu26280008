@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Medicine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h2>Delete Medicine</h2>
+
+<form method="POST">
+
+<label>Medicine ID</label>
+<input type="text" name="medicine_id" required>
+
+<button type="submit">Delete Medicine</button>
+
+</form>
+
+<p>{{ message }}</p>
+
+<a href="/">Back to Home</a>
+
+</div>
+
+</body>
+</html>

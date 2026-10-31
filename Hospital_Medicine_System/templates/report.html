@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h2>Medicine Inventory Report</h2>
+
+<div class="report">
+
+<h3>Total Medicines: {{ total_medicines }}</h3>
+
+<h3>Total Stock: {{ total_stock }}</h3>
+
+<h3>Low Stock Medicines: {{ low_stock_count }}</h3>
+
+{% if expensive %}
+<h3>Most Expensive Medicine</h3>
+<p>{{ expensive.name }} - ₹{{ expensive.price }}</p>
+{% else %}
+<p>No medicines available.</p>
+{% endif %}
+
+{% if cheapest %}
+<h3>Cheapest Medicine</h3>
+<p>{{ cheapest.name }} - ₹{{ cheapest.price }}</p>
+{% endif %}
+
+</div>
+
+<a href="/">Back to Home</a>
+
+</div>
+
+</body>
+</html>
