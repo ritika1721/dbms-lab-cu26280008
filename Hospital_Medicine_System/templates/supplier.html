@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supplier Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h2>Add Medicine with Supplier</h2>
+
+<form method="POST">
+
+<label>Medicine ID</label>
+<input type="text" name="medicine_id" required>
+
+<label>Medicine Name</label>
+<input type="text" name="name" required>
+
+<label>Category</label>
+<input type="text" name="category" required>
+
+<label>Price</label>
+<input type="number" name="price" min="0" step="0.01" required>
+
+<label>Stock</label>
+<input type="number" name="stock" min="0" required>
+
+<label>Manufacturer</label>
+<input type="text" name="manufacturer" required>
+
+<h3>Supplier Details</h3>
+
+<label>Supplier Name</label>
+<input type="text" name="supplier_name" required>
+
+<label>Phone</label>
+<input type="text" name="phone" required>
+
+<label>City</label>
+<input type="text" name="city" required>
+
+<button type="submit">Add Medicine</button>
+
+</form>
+
+<p>{{ message }}</p>
+
+<h2>Medicine and Supplier Records</h2>
+
+<table>
+
+<tr>
+    <th>Medicine</th>
+    <th>Supplier Name</th>
+    <th>Phone</th>
+    <th>City</th>
+</tr>
+
+{% for m in medicines %}
+<tr>
+    <td>{{ m.name }}</td>
+    <td>{{ m.supplier.name }}</td>
+    <td>{{ m.supplier.phone }}</td>
+    <td>{{ m.supplier.city }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<a href="/">Back to Home</a>
+
+</div>
+
+</body>
+</html>
